@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int add(int i, int j) {
     return (i + j);
@@ -18,6 +19,22 @@ float divide(int i, int j) {
         return 0; // Return 0 to indicate an error.
     }
     return ((float) i / j);  // Explicit type casting to float for decimal results.
+}
+
+float square(int i) {
+	return (float)(i * i);
+}
+
+float cube(int i) {
+	return (float)(i * i * i);
+}
+
+float inverse(int i) {
+	if (i == 0) {
+		printf("Error: Inverse of zero is not defined.\n");
+		return 0;
+	}
+	return (1.0 / i);
 }
 
 int main() {
@@ -64,17 +81,18 @@ int main() {
             case '^':
                 printf("Enter an integer: ");
                 scanf("%d", &a);
-                printf("Will be implemented soon...\n");
+                printf("The result of %d squared is %.2f\n", a, square(a));
                 break;
             case '#':
                 printf("Enter an integer: ");
                 scanf("%d", &a);
-                printf("Will be implemented soon...\n");
+                printf("The result of %d cubed is %.2f\n", a, cube(a));
                 break;
-            case 'i':
+            
+	    case 'i':
                 printf("Enter an integer: ");
                 scanf("%d", &a);
-                printf("Will be implemented soon...\n");
+                printf("The inverse of %d is %.2f\n", a, inverse(a));
                 break;
             default:
                 printf("Invalid operation. Please try again.\n");
